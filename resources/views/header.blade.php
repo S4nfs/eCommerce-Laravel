@@ -24,31 +24,28 @@ if(Session::has('user')){
                 <li class="nav-item">
                     <a class="nav-link" href="#">Orders</a>
                 </li>
-                <li><a class="nav-link" href="#">Cart({{$total}})</a></li>
+                <form class="d-flex" style="width: 50vw;">
+                    <input class="form-control me-2" type="search" placeholder="Search Products" aria-label="Search">
+                    <button class="btn btn-primary" type="submit"><i class="bi bi-search"></i></button>
+                </form>
+            </ul>
+            <ul class="nav navbar-nav navbar-right">
+                <li><a class="nav-link" href="/cartlist">Cart({{$total}})</a></li>
                 @if(Session::has('user'))
                 <li class="nav-item dropdown">
                     <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                      Hi, {{Session::get('user')['name']}}
+                      Hi, {{Session::get('user')[0]->name}}
                     </a>
                     <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
                       <li><a class="dropdown-item" href="#">Profile</a></li>
                       <li><a class="dropdown-item" href="#">Settings</a></li>
                       <li><hr class="dropdown-divider"></li>
-                      <li><a class="dropdown-item" href="#">Logout</a></li>
+                      <li><a class="dropdown-item" href="/logout">Logout</a></li>
                     </ul>
                   </li>
                   @else
                   <li><a class="nav-link" href="/login">Login</a></li>
                   @endif
-            </ul>
-            <ul class="nav navbar-nav navbar-right">
-              
-              <li class="nav-item">
-                <form class="d-flex">
-                    <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
-                    <button class="btn btn-outline-success" type="submit">Search</button>
-                </form>
-            </li>
             </ul>
         </div>
     </div>
