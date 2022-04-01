@@ -11,8 +11,14 @@
                 <h3>Rs. {{ $product['price'] }}</h3>
                 <p>Category - {{ $product['category'] }}</p>
                 <p>Description - {{ $product['description'] }}</p>
+                <p>{{session()->get('user')}}</p>
                 <br>
-                <button type="button" class="btn btn-warning"><i class="bi bi-cart"></i> Add</button>
+
+                <form action="/add_to_cart" method="post">
+                    @csrf
+                    <input type="hidden" name="product_id" value="{{$product['id']}}">
+                    <button type="submit" class="btn btn-warning"><i class="bi bi-cart"></i> Add To Cart</button>
+                </form><br>
                 <button class="btn btn-dark">Buy Now</button><br><br>
                 <p><i>(Inclusive of all taxes)</i></p>
             </div>
