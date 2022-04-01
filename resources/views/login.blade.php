@@ -6,14 +6,14 @@
             <div class="row gx-lg-5 align-items-center mb-5">
                 <div class="col-lg-6 mb-5 mb-lg-0" style="z-index: 10">
                     <h1 class="my-5 display-5 fw-bold ls-tight" style="color: hsl(218, 81%, 95%)">
-                        Be S-Mart while selecting the best grocery <br />
+                        Be S-Mart while buying the best groceries <br />
                         <span style="color: hsl(218, 81%, 75%)">for your kitchen</span>
                     </h1>
                     <p class="mb-4 opacity-70" style="color: hsl(218, 81%, 85%)">
                         A wide range of every staple and international cuisine product to meet your needs along with organic
                         products for fresh and packaged food items. With our offerings, we have the best online food shop &
                         online grocery shopping platform available for all your grocery products as well as physical grocery
-                        stores in select cities.
+                        stores in selected cities.
                     </p>
                 </div>
 
