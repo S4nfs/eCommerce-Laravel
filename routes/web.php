@@ -31,3 +31,4 @@ return redirect('login');
 });
 
 Route::get('/cartlist', [ProductController::class, 'mycartlist']);
+Route::get('removecart/{id}', [ProductController::class, 'removecart']);
