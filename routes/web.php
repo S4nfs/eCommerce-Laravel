@@ -16,6 +16,8 @@ use App\Models\Product;
 | contains the "web" middleware group. Now create something great!
 |
 */
+Route::post('/register', [UserController::class, 'registeruser']);
+Route::view('/register', 'register');
 
 Route::get('/login', function () {
     return view('login');
@@ -36,3 +38,6 @@ Route::get('/cartlist', [ProductController::class, 'mycartlist']);
 Route::get('removecart/{id}', [ProductController::class, 'removecart']);
 Route::get('/checkout', [ProductController::class, 'checkout']);
 Route::post('/orderplace', [ProductController::class, 'orderPlace']);
+Route::get('/ordernow', [ProductController::class, 'myOrders']);
+
+
