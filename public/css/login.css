@@ -48,7 +48,7 @@ img.slider-img{
   margin: 0 auto;
 }
 .custom-product{
-  height:600px;
+  height: 1000px;;
 }
 .cc{
   background-color: gainsboro;
@@ -71,4 +71,9 @@ margin: 30px;
 }
 .detail-img{
   height: 200px;
+}
+
+.dropdown{
+  margin-right: 1rem;
+
 }
