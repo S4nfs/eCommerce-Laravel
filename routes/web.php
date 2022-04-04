@@ -4,6 +4,8 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\UserController;
 use App\Models\User;
 use App\Http\Controllers\ProductController;
+use App\Models\Product;
+
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -32,3 +34,5 @@ return redirect('login');
 
 Route::get('/cartlist', [ProductController::class, 'mycartlist']);
 Route::get('removecart/{id}', [ProductController::class, 'removecart']);
+Route::get('/checkout', [ProductController::class, 'checkout']);
+Route::post('/orderplace', [ProductController::class, 'orderPlace']);
