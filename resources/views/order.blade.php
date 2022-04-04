@@ -1,8 +1,5 @@
 @extends('master')
-
-
 @section('content')
-
     {{-- <div class="custom-product"> --}}
     <div class="container d-lg-flex">
         <div class="box-1 bg-light user">
@@ -54,15 +51,16 @@
                     <p class="dis mb-3">Complete your purchase by providing your payment details</p>
                 </div>
                 <form action="/orderplace" method="POST">
+                    @csrf
                     <div class="mb-3">
                         <p class="dis fw-bold mb-2">Email address</p> <input class="form-control" type="email"
-                            value="{{ Session::get('user')[0]->email }}" name="email" placeholder="Email Address">
+                            value="{{ Session::get('user')[0]->email }}" placeholder="Email Address">
                     </div>
                     <div>
                         <p class="dis fw-bold mb-2">Card details</p>
                         <div class="d-flex align-items-center justify-content-between card-atm border rounded">
                             <div class="fab fa-cc-visa ps-3"></div> <input type="text" class="form-control"
-                                placeholder="Card Details" name="card">
+                                placeholder="Card Details">
                             <div class="d-flex w-50"> <input type="text" class="form-control px-0" placeholder="MM/YY">
                                 <input type="password" maxlength=3 class="form-control px-0" placeholder="CVV">
                             </div>
@@ -73,15 +71,19 @@
                         </div>
                         <div class="address">
                             <p class="dis fw-bold mb-3">Billing address</p> <select class="form-select"
-                                aria-label="Default select example">
-                                <option selected hidden>United States</option>
-                                <option value="1">India</option>
-                                <option value="2">Australia</option>
-                                <option value="3">Canada</option>
+                                aria-label="Default select example" name="country">
+                                <option selected value="us">United States</option>
+                                <option value="in">India</option>
+                                <option value="aus">Australia</option>
+                                <option value="ca">Canada</option>
                             </select>
                             <div class="d-flex"> <input class="form-control zip" type="text" placeholder="ZIP"
-                                    name="zip">
+                                    name="zipcode">
                                 <input class="form-control state" type="text" placeholder="State" name="state">
+                            </div>
+                            <div class="my-3 cardname">
+                                <p class="dis fw-bold mb-2"></p> <input class="form-control" type="text" name="address"
+                                    placeholder="Address" required>
                             </div>
                             <div class=" my-3">
                                 <p class="dis fw-bold mb-2">VAT Number</p>
@@ -117,9 +119,8 @@
                                             class="fas fa-dollar-sign"></span>{{ $total - $d + $v }}
                                     </p>
                                 </div>
-                                <div class="btn btn-primary mt-2">Pay<span
-                                        class="fas fa-dollar-sign px-1"></span>{{ $total - $d + $v }}
-                                </div>
+                                <button type="submit" class="btn btn-primary mt-2">Pay<span class="fas fa-dollar-sign px-1"></span>{{ $total - $d + $v }}
+                                </button>
                             </div>
                         </div>
                     </div>
