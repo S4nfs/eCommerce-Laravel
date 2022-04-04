@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\Product;
 use App\Models\Cart;
+use App\Models\Order;
 use Session;
 use Illuminate\Support\Facades\DB;
 
@@ -42,10 +43,14 @@ class ProductController extends Controller
 
     function mycartlist()
     {
+        if (session()->has('user')) {
         $userId = Session()->get('user')[0]->id;
         $fetchAllCart = DB::table('cart')->join('products', 'cart.product_id', '=', 'products.id')->where('cart.user_id', $userId)->select('products.*', 'cart.id as cart_id')->get();
         return view('cartlist', ['products' => $fetchAllCart]);
         // return ['products' => $fetchAllCart];
+        }else{
+           return redirect('login');
+        }
 
     }
 
@@ -53,5 +58,42 @@ class ProductController extends Controller
     {
         Cart::destroy($id);
         return redirect('cartlist');
+    }
+
+    function checkout(){
+        if (session()->has('user')) {
+            $userId = Session()->get('user')[0]->id;
+             $products = DB::table('cart')->join('products', 'cart.product_id', '=', 'products.id')->where('cart.user_id', $userId)->sum('products.price');
+            $getuser = DB::table('users')->where('id', $userId)->get();
+            return view('order',["total" => $products, "getuser" => $getuser]);
+            // return ["total" => $products, "getuser" => $getuser];
+            
+        }else{
+            return redirect('login');
+        }
+    }
+
+    function orderPlace(Request $req){
+        if (session()->has('user')) {
+            $userId = Session()->get('user')[0]->id;
+            $allCart = Cart::where('user_id', $userId)->get();
+            foreach($allCart as $cart){
+                $order = new Order;
+                $order->product_id = $cart['product_id'];
+                $order->user_id = $cart['user_id'];
+                $order->status = "Ordered";
+                $order->country = $req->country;
+                $order->zipcode = $req->zipcode;
+                $order->state = $req->state;
+                $order->address = $req->address;
+                $order->save();
+                Cart::where('user_id', $userId)->delete();
+            }
+           
+            //bootstrap alert notificatcation on order success after redirecting to home page
+            return redirect('/')->with('jsalert', 'Order Placed Successfully');
+        }else{
+            return redirect('login');
+        }
     }
 }
