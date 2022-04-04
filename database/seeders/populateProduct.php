@@ -49,7 +49,35 @@ class populateProduct extends Seeder
                 'category' => "Vegetable & Seed Oils",
                 'description' => "SPRIG Toasted Sesame Oil is made in small batches, so as to ensure that all the flavor notes are captured beautifully.",
                 'gallery' => "https://d1z88p83zuviay.cloudfront.net/ProductVariantThumbnailImages/697e62e8-a61f-48f8-9d58-fb93b678fd8e_425x425.JPG"
-            ]
+            ],
+            [
+                'name' => "KW MAGNUM CHOCOTRFFLE STICK 80Ml - 1 Pc",
+                'price' => 80,
+                'category' => "Ice Creams & Desserts",
+                'description' => "Product of : Thailand. Indulge in thick Belgian Chocolate Ice Cream with the Magnum Truffle Ice Cream. Made from finest ingredients, it is a treat for all chocolate lovers.",
+                'gallery' => "https://d1z88p83zuviay.cloudfront.net/ProductVariantThumbnailImages/97e020df-acc1-4b42-bc2c-40160bacf0c0_425x425.jpg"
+            ],
+            [
+                'name' => "RAW PRESSERY PLAIN ALMOND MILK 1LTR - 1 Pc",
+                'price' => 295,
+                'category' => " Breakfast, Dairy & Bakery",
+                'description' => "dairy-free almond milk (unsweetened). Perfect alternative to add to daily shakes, tea, coffee",
+                'gallery' => "https://d1z88p83zuviay.cloudfront.net/ProductVariantThumbnailImages/01aa2454-dea8-43e8-ab12-cec4e653cd10_425x425.jpg"
+            ],
+            [
+                'name' => "Organic Green Cardamom Whole - Healthy Alternatives - 50 g",
+                'price' => 575,
+                'category' => "Cooking Spices & Powders ",
+                'description' => "Cardamoms are an exotic spice from India. Warm, fragrant and mysterious it has a unique and pleasant fragrance. ",
+                'gallery' => "https://d1z88p83zuviay.cloudfront.net/ProductVariantThumbnailImages/11409aa8-48bc-437f-a574-ac2ff5534bb2_425x425.jpg"
+            ],
+            [
+                'name' => "CONSCIOUS FOOD TURMERIC POWDER 100g - 1 Pc",
+                'price' => 45,
+                'category' => "COOKING SPICES & POWDERS ",
+                'description' => "Add an Indian Touch to your favourite dishes with our finest and aromatic Turmeric Powder ",
+                'gallery' => "https://d1z88p83zuviay.cloudfront.net/ProductVariantThumbnailImages/1300428_1_425x425.jpg"
+            ],
         ]);
     }
 }
