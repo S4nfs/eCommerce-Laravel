@@ -22,9 +22,9 @@ if(Session::has('user')){
                     <a class="nav-link active" aria-current="page" href="/">Home</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="#">Orders</a>
+                    <a class="nav-link" href="/ordernow">Orders</a>
                 </li>
-                <form class="d-flex" style="width: 50vw;">
+                <form class="d-flex" style="width: 50vw; margin-left: 1rem;">
                     <input class="form-control me-2" type="search" placeholder="Search Products" aria-label="Search">
                     <button class="btn btn-primary" type="submit"><i class="bi bi-search"></i></button>
                 </form>
@@ -33,7 +33,7 @@ if(Session::has('user')){
                 <li><a class="nav-link" href="/cartlist">Cart({{$total}})</a></li>
                 @if(Session::has('user'))
                 <li class="nav-item dropdown">
-                    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                    <a class="nav-link dropdown-toggle godown" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
                       Hi, {{Session::get('user')[0]->name}}
                     </a>
                     <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
@@ -45,6 +45,7 @@ if(Session::has('user')){
                   </li>
                   @else
                   <li><a class="nav-link" href="/login">Login</a></li>
+                  <li><a class="dropdown-item" href="/logout">Register</a></li>
                   @endif
             </ul>
         </div>
