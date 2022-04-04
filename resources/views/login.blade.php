@@ -30,20 +30,20 @@
                                     <div class="form-outline mb-4">
                                         <div class="form-outline">
                                             <label class="form-label" for="form3Example1">Full Name</label>
-                                            <input type="text" id="form3Example1" class="form-control" name="name"/>
+                                            <input type="text" id="form3Example1" class="form-control" name="name" required/>
                                         </div>
                                     </div>
 
                                 <!-- Email input -->
                                 <div class="form-outline mb-4">
                                     <label class="form-label" for="form3Example3">Email address</label>
-                                    <input type="email" id="form3Example3" class="form-control" name="email"/>
+                                    <input type="email" id="form3Example3" class="form-control" name="email" required/>
                                 </div>
 
                                 <!-- Password input -->
                                 <div class="form-outline mb-4">
                                     <label class="form-label" for="form3Example4">Password</label>
-                                    <input type="password" id="form3Example4" class="form-control" name="password"/>
+                                    <input type="password" id="form3Example4" class="form-control" name="password" required/>
                                 </div>
 
                                 <!-- Checkbox -->
