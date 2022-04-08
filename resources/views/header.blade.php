@@ -24,8 +24,8 @@ if(Session::has('user')){
                 <li class="nav-item">
                     <a class="nav-link" href="/ordernow">Orders</a>
                 </li>
-                <form class="d-flex" style="width: 50vw; margin-left: 1rem;">
-                    <input class="form-control me-2" type="search" placeholder="Search Products" aria-label="Search">
+                <form class="d-flex" style="width: 50vw; margin-left: 1rem;" method="GET" action="/search">
+                    <input class="form-control me-2" type="search" placeholder="Search Products" aria-label="Search" name="search">
                     <button class="btn btn-primary" type="submit"><i class="bi bi-search"></i></button>
                 </form>
             </ul>
