@@ -11,7 +11,7 @@
                 <h3>Rs. {{ $product['price'] }}</h3>
                 <p>Category - {{ $product['category'] }}</p>
                 <p>Description - {{ $product['description'] }}</p>
-                <p>{{session()->get('user')}}</p>
+                {{-- <p>{{session()->get('user')}}</p> --}}
                 <br>
 
                 <form action="/add_to_cart" method="post">
