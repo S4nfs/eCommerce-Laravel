@@ -33,13 +33,11 @@
         <div class="container">
             <div class="row">
                 <div class="col">
-                    1 of 3
                 </div>
                 <div class="col-md-auto">
-                    Variable width content
                 </div>
                 <div class="col col-lg-2">
-                    <a href="checkout"><button type="button" class="btn btn-success">Checkout</button></a>
+                    <a href="checkout"><button type="button" class="btn btn-dark">Checkout</button></a>
                 </div>
             </div>
         </div>
