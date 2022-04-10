@@ -115,7 +115,12 @@ class ProductController extends Controller
     function searchProducts(Request $req)
     {
         $search = $req->search; //can also use If(request('search')) 
+        if($search != ""){
         $data = Product::Where('category', 'like', '%' . $search . '%')->orWhere('description', 'like', '%' . $search . '%')->get();
         return view('searchresults',['sproducts' => $data]);
+        }
+        else{
+            return redirect('/')->with('jsalert', 'No Products Found');
+        }
     }
 }

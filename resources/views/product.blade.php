@@ -95,22 +95,25 @@
             </button>
         </div>
     </div>
-    <div class="custom-product">
+    <div class="custom-product trend">
 
         <div class="trending-wrapper">
             <h3>Trending on S-Mart <span class="badge bg-dark">new</span></h3>
             @foreach ($products as $items)
                 <div class="trending-items">
-                    <div class="ti">
+                    <div class="trendtile">
                         <a href="detail/{{ $items['id'] }}">
                             <img class="trending-img" src="{{ $items['gallery'] }}" alt="First slide">
                             <div class="" style="margin-top: 3rem;">
-                                <div class="">
+                                <div class="trendtilename">
                                     <p style="color:black;">{{ $items['name'] }} </p>
                                     {{-- <p style="color:black;">Price: Rs {{ $items['price'] }}</p> --}}
                                 </div>
                             </div>
                         </a>
+                    </div>
+                    <div class="trendbtn">
+                        <a href="/detail/{{ $items->cart_id }}" class="btn btn-warning">Add</a>
                     </div>
                 </div>
             @endforeach
