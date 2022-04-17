@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use App\Models\Product;
 use App\Models\Cart;
 use App\Models\Order;
+use App\Models\User;
 use Session;
 use Illuminate\Support\Facades\DB;
 
@@ -115,12 +116,40 @@ class ProductController extends Controller
     function searchProducts(Request $req)
     {
         $search = $req->search; //can also use If(request('search')) 
-        if($search != ""){
-        $data = Product::Where('category', 'like', '%' . $search . '%')->orWhere('description', 'like', '%' . $search . '%')->get();
-        return view('searchresults',['sproducts' => $data]);
-        }
-        else{
+        if ($search != "") {
+            $data = Product::Where('category', 'like', '%' . $search . '%')->orWhere('description', 'like', '%' . $search . '%')->get();
+            return view('searchresults', ['sproducts' => $data]);
+        } else {
             return redirect('/')->with('jsalert', 'No Products Found');
+        }
+    }
+
+    //--------------------------------------------------------------------------------------------------------------------
+    function uploader(Request $req)
+    {
+        if (session()->has('user')) {
+            $userId = Session()->get('user')[0]->id;
+            if ($req->hasFile('image')) {
+                $myavatarName = $req->image->getClientOriginalName();
+                $req->image->storeAs('avatars', $myavatarName, 'public'); //('folder', $filename, 'directory')
+                User::find($userId)->update(['avatar' => $myavatarName]);
+            }
+            return redirect()->back();
+        } else {
+            return redirect('login');
+        }
+    }
+
+
+    function fetchprofile()
+    {
+        if (session()->has('user')) {
+            $userId = Session()->get('user')[0]->id;
+            //get user data
+            $user = User::find($userId);
+            return view('profile', ['userdata' => $user]);
+        } else {
+            return redirect('login');
         }
     }
 }
