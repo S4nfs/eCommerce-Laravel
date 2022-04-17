@@ -41,3 +41,5 @@ Route::post('/orderplace', [ProductController::class, 'orderPlace']);
 Route::get('/ordernow', [ProductController::class, 'myOrders']);
 Route::get('/search', [ProductController::class, 'searchProducts']);
 
+Route::post('/avatarupload', [ProductController::class, 'uploader']);
+Route::get('/profile', [ProductController::class, 'fetchprofile']);
