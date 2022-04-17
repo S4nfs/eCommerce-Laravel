@@ -8,6 +8,7 @@ use App\Models\Cart;
 use App\Models\Order;
 use App\Models\User;
 use Session;
+use Storage;
 use Illuminate\Support\Facades\DB;
 
 class ProductController extends Controller
@@ -131,14 +132,18 @@ class ProductController extends Controller
             $userId = Session()->get('user')[0]->id;
             if ($req->hasFile('image')) {
                 $myavatarName = $req->image->getClientOriginalName();
+                //delete old avatar image if exists
+                if (User::find($userId)->avatar != "") {
+                    $oldAvatar = User::find($userId)->avatar;
+                    Storage::delete('/public/avatars/' . $oldAvatar);   //Storage:: = (/storage/app/)
+                }
                 $req->image->storeAs('avatars', $myavatarName, 'public'); //('folder', $filename, 'directory')
                 User::find($userId)->update(['avatar' => $myavatarName]);
             }
-            return redirect()->back();
-        } else {
-            return redirect('login');
         }
+        return redirect()->back();
     }
+
 
 
     function fetchprofile()
