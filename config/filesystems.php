@@ -37,7 +37,9 @@ return [
 
         'public' => [
             'driver' => 'local',
-            'root' => storage_path('app/public'),
+            'root' => storage_path('app/public'), 
+            // 'root' => public_path(),                 //by default laravel public disk does not upload to public directory
+                                                        //To make these files accessible from the web, you should create a symbolic link from public/storage to storage/app/public
             'url' => env('APP_URL').'/storage',
             'visibility' => 'public',
         ],
