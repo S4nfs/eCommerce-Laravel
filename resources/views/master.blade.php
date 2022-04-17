@@ -12,7 +12,7 @@
     <link rel="stylesheet" href='/css/login.css'>
     <link rel="stylesheet" href="{{ asset('/css/order.css') }}">
     <link rel="stylesheet" href="{{ asset('css/cart.css') }}">
-
+<link rel="stylesheet" href="{{asset('css/profile.css')}}">
     {{ View::make('header') }}
 
     <title>S-Mart Shopping Platform</title>
