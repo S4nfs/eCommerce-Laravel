@@ -125,36 +125,5 @@ class ProductController extends Controller
         }
     }
 
-    //--------------------------------------------------------------------------------------------------------------------
-    function uploader(Request $req)
-    {
-        if (session()->has('user')) {
-            $userId = Session()->get('user')[0]->id;
-            if ($req->hasFile('image')) {
-                $myavatarName = $req->image->getClientOriginalName();
-                //delete old avatar image if exists
-                if (User::find($userId)->avatar != "") {
-                    $oldAvatar = User::find($userId)->avatar;
-                    Storage::delete('/public/avatars/' . $oldAvatar);   //Storage:: = (/storage/app/)
-                }
-                $req->image->storeAs('avatars', $myavatarName, 'public'); //('folder', $filename, 'directory')
-                User::find($userId)->update(['avatar' => $myavatarName]);
-            }
-        }
-        return redirect()->back();
-    }
 
-
-
-    function fetchprofile()
-    {
-        if (session()->has('user')) {
-            $userId = Session()->get('user')[0]->id;
-            //get user data
-            $user = User::find($userId);
-            return view('profile', ['userdata' => $user]);
-        } else {
-            return redirect('login');
-        }
-    }
 }
