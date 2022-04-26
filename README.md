@@ -13,8 +13,9 @@ This is a Laravel Ecommerce Project based on the Laravel 8. This project is a co
 4. Cart
 5. Checkout
 6. Remove Item from Cart
+7. Search Products in search bar
 
-Features to be implemented: Search products, Order Listing, Payment Gateway, Mailing, Product rating, User comments, etc.
+Features to be implemented: Order Listing, Payment Gateway, Mailing, Product rating, User comments, etc.
 
 <br>
 
