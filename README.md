@@ -16,6 +16,7 @@ This is a Laravel Ecommerce Project based on the Laravel 8. This project is a co
 7. Search Products in search bar
 
 Features to be implemented: Order Listing, Payment Gateway, Mailing, Product rating, User comments, etc.
+Note : You can import my dummy data without any migrations, just import the ecommerce.sql file in your database.
 
 <br>
 
