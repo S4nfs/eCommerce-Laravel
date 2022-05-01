@@ -33,6 +33,7 @@ class UserController extends Controller
 
     //Uploading, Deleting Old Avatar, Updating-------------------------------------------------------------------------------
     function uploader(Request $req)
+
     {
         if (session()->has('user')) {
             $userId = Session()->get('user')[0]->id;
@@ -42,10 +43,12 @@ class UserController extends Controller
                 $this->deleteOldAvatar();
                 $req->image->storeAs('avatars', $myavatarName, 'public'); //('folder', $filename, 'directory')
                 User::find($userId)->update(['avatar' => $myavatarName]);
-                $req->session()->flash('message', 'Avatar Updated Successfully');
+                return redirect()->back()->with('message', 'Avatar Updated Successfully'); //show flash message
+
             }
+        } else {
+            return redirect('/login');
         }
-        return redirect()->back();
     }
 
     protected function deleteOldAvatar()
