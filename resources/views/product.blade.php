@@ -113,7 +113,7 @@
                         </a>
                     </div>
                     <div class="trendbtn">
-                        <a href="/detail/{{ $items->cart_id }}" class="btn btn-warning">Add</a>
+                        <a href="/detail/{{ $items['id'] }}" class="btn btn-warning">Add</a>
                     </div>
                 </div>
             @endforeach
