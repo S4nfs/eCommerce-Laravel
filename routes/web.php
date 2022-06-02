@@ -5,7 +5,7 @@ use App\Http\Controllers\UserController;
 use App\Models\User;
 use App\Http\Controllers\ProductController;
 use App\Models\Product;
-
+use App\Http\Controllers\AuthController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -43,3 +43,7 @@ Route::get('/search', [ProductController::class, 'searchProducts']);
 
 Route::post('/avatarupload', [UserController::class, 'uploader']);
 Route::get('/profile', [UserController::class, 'fetchprofile']);
+
+//OAuth
+Route::get('/auth/github/redirect', [AuthController::class, 'githubredirect']);
+Route::get('/auth/github/callback', [AuthController::class, 'githubcallback']);
