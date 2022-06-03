@@ -18,6 +18,7 @@ class CreateUsersTable extends Migration
             $table->string('name');
             $table->string('email')->unique;
             $table->string('password');
+            $table->string('auth_type')->default('email');
             $table->string('avatar')->nullable();
             $table->timestamps();
         });
@@ -30,6 +31,8 @@ class CreateUsersTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('users');
+        Schema::create('users', function (Blueprint $table) {
+            $table->dropColumn('auth_type');
+        });
     }
 }
