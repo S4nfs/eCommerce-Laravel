@@ -63,21 +63,20 @@
                                 <!-- Register buttons -->
                                 <div class="text-center">
                                     <p>or sign up with:</p>
-                                    <button type="button" class="btn btn-link btn-floating mx-1">
+                                    {{-- <button type="button" class="btn btn-link btn-floating mx-1">
                                         <i class="fab fa-facebook-f"></i>
-                                    </button>
+                                    </button> --}}
 
-                                    <button type="button" class="btn btn-link btn-floating mx-1">
-                                        <i class="fab fa-google"></i>
-                                    </button>
-
+                                    <a href="/auth/google/redirect" class="btn btn-primary btn-block mb-4 mx-4">
+                                        <i class="bi bi-google"></i>
+                                    </a>
+{{-- 
                                     <button type="button" class="btn btn-link btn-floating mx-1">
                                         <i class="fab fa-twitter"></i>
-                                    </button>
+                                    </button> --}}
 
-                                    <button type="button" class="btn btn-link btn-floating mx-1">
-                                        <i class="fab fa-github"></i>
-                                    </button>
+                                    <a href="/auth/github/redirect" class="btn btn-primary btn-block mb-4 mx-4">
+                                        <i class="bi bi-github"></i></a>
                                 </div>
                             </form>
                         </div>
